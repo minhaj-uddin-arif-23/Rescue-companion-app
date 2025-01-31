@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Homepage from "./Home/Homepage";
 
 export default function Home() {
   return (
     <div>
-      <h1>Hello</h1>
+      <Homepage />
     </div>
   );
 }

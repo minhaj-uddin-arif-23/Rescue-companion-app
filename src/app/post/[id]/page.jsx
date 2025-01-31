@@ -1,3 +1,4 @@
+// "use client"
 import React from 'react'
 
 export const getSingleItem = async (id) => {
@@ -6,16 +7,33 @@ export const getSingleItem = async (id) => {
   return data;
 }
 
+// dynamic wise title
+export async function generateMetadata({ params}) {
+  // read route params
+  const id = (await params).id
+ 
+  // fetch data
+  const singlePost = await getSingleItem(id)
+ 
+  
+  return {
+    title: singlePost.title,
+    description: singlePost.body
+  }
+}
+
+
+
 export default async function page({params}) {
   const data =await params
     const item = await getSingleItem(data.id)
     // console.log(item)
   return (
-    <div className='w-11/12 mx-auto flex items-center justify-center'>
+    <div className='w-11/12 mx-auto flex items-center justify-center mt-44 '>
         <div className="card bg-base-100 w-96 shadow-xl">
               <figure>
                 <img
-                  src='/one.jpg'
+                  src='/rescue.jpg'
                   alt="Shoes"
                 />
               </figure>
